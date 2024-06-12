@@ -8,6 +8,11 @@ fetch('https://api.tvmaze.com/shows')
         data.forEach(show => {
             const showCard = document.createElement('div');
             showCard.className = 'show-card';
+            showCard.addEventListener('click', () => {
+                window.location.href = show.url;
+                
+            })
+
 
             const image = document.createElement('img');
             image.src = show.image?.medium || 'placeholder.jpg';
@@ -18,6 +23,7 @@ fetch('https://api.tvmaze.com/shows')
 
             const description = document.createElement('p');
             description.textContent = show.summary;
+
 
             showCard.appendChild(image);
             showCard.appendChild(title);
